@@ -3,32 +3,43 @@
     .module('pawfinder')
     .controller('LandingPageController', LandingPageController)
 
-  function LandingPageController($http, PetService) {
+  function LandingPageController($http) {
     const vm = this
-    const pawfinderURL = 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=a45d5fffa861665ba62810deb33f3fb7&animal=dog&format=json&count=24&location='
+    const pawfinderURL = 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=a45d5fffa861665ba62810deb33f3fb7&format=json&count=24&location='
+    let cats = '&animal=cat'
+    let doggy = '&animal=dog'
     vm.showButton = false;
     vm.showButton2 = false;
     vm.showButton3 = false;
     vm.showButton4 = false;
+    vm.showButtonActive = false;
+    vm.showButton2Active = false;
+    vm.showButton3Active = false;
+    vm.showButton4Active = false;
     vm.hide = false;
-    vm.photo = false
 
-    vm.getPets = function() {
+
+    ////////////////// FIND DOGS ////////////////////
+    vm.getDogs = function() {
       let zipcode = vm.zipcode
       vm.loading = true
 
-
-      $http.get(`${pawfinderURL}${zipcode}`)
+      $http.get(`${pawfinderURL}${zipcode}${doggy}`)
         .then(results => {
           console.log(results);
           vm.dogs = results.data.petfinder.pets.pet
           let dogs = vm.dogs
-          vm.hide = true
+
           vm.showButton2 = true;
           vm.showButton3 = true;
           vm.showButton4 = true;
           vm.showButton = false;
+          vm.showButtonActive = true;
+          vm.showButton2Active = false;
+          vm.showButton3Active = false;
+          vm.showButton4Active = false;
           vm.loading = false;
+          vm.hide = true;
 
           dogs.map(dog => {
             if (dog.media.photos) {
@@ -43,7 +54,8 @@
       vm.zipcode = ''
 
       vm.original = function() {
-        $http.get(`${pawfinderURL}${zipcode}&offset=0`)
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=0`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -52,6 +64,12 @@
             vm.showButton3 = true;
             vm.showButton4 = true;
             vm.showButton = false;
+            vm.showButtonActive = true;
+            vm.showButton2Active = false;
+            vm.showButton3Active = false;
+            vm.showButton4Active = false;
+            vm.loading = false;
+            vm.hide = true;
 
             dogs.map(dog => {
               if (dog.media.photos) {
@@ -65,7 +83,8 @@
       }
 
       vm.nextPage = function() {
-        $http.get(`${pawfinderURL}${zipcode}&offset=24`)
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=24`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -74,6 +93,12 @@
             vm.showButton3 = true;
             vm.showButton4 = true;
             vm.showButton2 = false;
+            vm.showButtonActive = false;
+            vm.showButton2Active = true;
+            vm.showButton3Active = false;
+            vm.showButton4Active = false;
+            vm.loading = false;
+            vm.hide = true;
 
             dogs.map(dog => {
               if (dog.media.photos) {
@@ -87,7 +112,8 @@
       }
 
       vm.nextPage2 = function() {
-        $http.get(`${pawfinderURL}${zipcode}&offset=48`)
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=48`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -96,6 +122,12 @@
             vm.showButton2 = true;
             vm.showButton4 = true;
             vm.showButton3 = false;
+            vm.showButtonActive = false;
+            vm.showButton2Active = false;
+            vm.showButton3Active = true;
+            vm.showButton4Active = false;
+            vm.loading = false;
+            vm.hide = true;
 
             dogs.map(dog => {
               if (dog.media.photos) {
@@ -109,7 +141,8 @@
       }
 
       vm.nextPage3 = function() {
-        $http.get(`${pawfinderURL}${zipcode}&offset=72`)
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=72`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -118,6 +151,12 @@
             vm.showButton2 = true;
             vm.showButton3 = true;
             vm.showButton4 = false;
+            vm.showButtonActive = false;
+            vm.showButton2Active = false;
+            vm.showButton3Active = false;
+            vm.showButton4Active = true;
+            vm.loading = false;
+            vm.hide = true;
 
             dogs.map(dog => {
               if (dog.media.photos) {
@@ -130,16 +169,167 @@
           })
       }
     }
-    vm.service = PetService
+
+    ////////////////// FIND CATS ////////////////////
+    vm.getCats = function() {
+      let zipcode = vm.zipcode
+      vm.loading = true
+
+      $http.get(`${pawfinderURL}${zipcode}${cats}`)
+        .then(results => {
+          console.log(results);
+          vm.dogs = results.data.petfinder.pets.pet
+          let dogs = vm.dogs
+
+          vm.showButton2 = true;
+          vm.showButton3 = true;
+          vm.showButton4 = true;
+          vm.showButton = false;
+          vm.showButtonActive = true;
+          vm.showButton2Active = false;
+          vm.showButton3Active = false;
+          vm.showButton4Active = false;
+          vm.loading = false;
+          vm.hide = true;
+
+          dogs.map(dog => {
+            if (dog.media.photos) {
+              dog.media.photos = dog.media.photos.photo[2].$t
+            } else {
+              dog.media.photos = 'http://www.waycooldogs.com/wp-content/uploads/2009/09/cat-dog-play.jpg'
+            }
+          })
+
+        })
+      vm.dogs = []
+      vm.zipcode = ''
+
+      vm.original = function() {
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=0`)
+          .then(results => {
+            console.log(results);
+            vm.dogs = results.data.petfinder.pets.pet
+            let dogs = vm.dogs
+            vm.showButton2 = true;
+            vm.showButton3 = true;
+            vm.showButton4 = true;
+            vm.showButton = false;
+            vm.showButtonActive = true;
+            vm.showButton2Active = false;
+            vm.showButton3Active = false;
+            vm.showButton4Active = false;
+            vm.loading = false;
+            vm.hide = true;
+
+            dogs.map(dog => {
+              if (dog.media.photos) {
+                dog.media.photos = dog.media.photos.photo[2].$t
+              } else {
+                dog.media.photos = 'http://www.waycooldogs.com/wp-content/uploads/2009/09/cat-dog-play.jpg'
+              }
+            })
+
+          })
+      }
+
+      vm.nextPage = function() {
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=24`)
+          .then(results => {
+            console.log(results);
+            vm.dogs = results.data.petfinder.pets.pet
+            let dogs = vm.dogs
+            vm.showButton = true;
+            vm.showButton3 = true;
+            vm.showButton4 = true;
+            vm.showButton2 = false;
+            vm.showButtonActive = false;
+            vm.showButton2Active = true;
+            vm.showButton3Active = false;
+            vm.showButton4Active = false;
+            vm.loading = false;
+            vm.hide = true;
+
+            dogs.map(dog => {
+              if (dog.media.photos) {
+                dog.media.photos = dog.media.photos.photo[2].$t
+              } else {
+                dog.media.photos = 'http://www.waycooldogs.com/wp-content/uploads/2009/09/cat-dog-play.jpg'
+              }
+            })
+
+          })
+      }
+
+      vm.nextPage2 = function() {
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=48`)
+          .then(results => {
+            console.log(results);
+            vm.dogs = results.data.petfinder.pets.pet
+            let dogs = vm.dogs
+            vm.showButton = true;
+            vm.showButton2 = true;
+            vm.showButton4 = true;
+            vm.showButton3 = false;
+            vm.showButtonActive = false;
+            vm.showButton2Active = false;
+            vm.showButton3Active = true;
+            vm.showButton4Active = false;
+            vm.loading = false;
+            vm.hide = true;
+
+            dogs.map(dog => {
+              if (dog.media.photos) {
+                dog.media.photos = dog.media.photos.photo[2].$t
+              } else {
+                dog.media.photos = 'http://www.waycooldogs.com/wp-content/uploads/2009/09/cat-dog-play.jpg'
+              }
+            })
+
+          })
+      }
+
+      vm.nextPage3 = function() {
+        vm.loading = true
+        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=72`)
+          .then(results => {
+            console.log(results);
+            vm.dogs = results.data.petfinder.pets.pet
+            let dogs = vm.dogs
+            vm.showButton = true;
+            vm.showButton2 = true;
+            vm.showButton3 = true;
+            vm.showButton4 = false;
+            vm.showButtonActive = false;
+            vm.showButton2Active = false;
+            vm.showButton3Active = false;
+            vm.showButton4Active = true;
+            vm.loading = false;
+            vm.hide = true;
+
+            dogs.map(dog => {
+              if (dog.media.photos) {
+                dog.media.photos = dog.media.photos.photo[2].$t
+              } else {
+                dog.media.photos = 'http://www.waycooldogs.com/wp-content/uploads/2009/09/cat-dog-play.jpg'
+              }
+            })
+
+          })
+      }
+    }
+    ////////////////////////////// END FIND CATS ///////////////////////////////
+
 
     vm.getInfo = function(dog) {
       dog.show = true
       console.log(dog);
     }
 
-    vm.closeDogInfo = function(dog) {
+    vm.closePetInfo = function(dog) {
       dog.show = false
-      console.log('pushed');
     }
   }
 }());

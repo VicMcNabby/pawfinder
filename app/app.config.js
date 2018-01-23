@@ -11,9 +11,6 @@
       .state('home', {
         url: '/',
         component: 'landingpage'
-      }).state('petpage', {
-        url: '/petpage',
-        component: 'petpage'
       })
 
     $urlServiceProvider.rules.otherwise({
