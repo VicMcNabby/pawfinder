@@ -1,0 +1,133 @@
+<div class="landingPage">
+  <div class="landingPageHeaderBox">
+    <h1 id="topOfResults" class="landingPageHeader">PawFinder</h1>
+    <img class="landingPageHeaderImage" src="/images/pawfinderlogo.png" />
+  </div>
+  <div class="petSearchInput">
+    <form class="input-group pawfinderForm">
+      <input ng-model="$ctrl.zipcode" type="text" class="form-control" placeholder="Enter zipcode...">
+      <span class="input-group-btn">
+    <button ng-click="$ctrl.getPets()" class="btn landingPageButton" type="submit">Find Pets</button>
+      </span>
+    </form>
+  </div>
+  <div class="nextPageBox">
+    <p class="nextPageHeader" ng-show="$ctrl.hide">
+      page
+    </p>
+    <div class="nextButtons">
+      <button class="nextPageButton" ng-show="$ctrl.showButton" ng-click="$ctrl.original()" href="#topOfResults" du-smooth-scroll>1</button>
+      <button class="nextPageButton" ng-show="$ctrl.showButton2" ng-click="$ctrl.nextPage()" href="#topOfResults" du-smooth-scroll>2</button>
+      <button class="nextPageButton" ng-show="$ctrl.showButton3" ng-click="$ctrl.nextPage2()" href="#topOfResults" du-smooth-scroll>3</button>
+      <button class="nextPageButton" ng-show="$ctrl.showButton4" ng-click="$ctrl.nextPage3()" href="#topOfResults" du-smooth-scroll>4</button>
+    </div>
+  </div>
+  <div class="pageNumberBox" ng-show="$ctrl.hide">
+    <p ng-hide="$ctrl.showButton" class="pageNumber">
+      page 1
+    </p>
+    <p ng-hide="$ctrl.showButton2" class="pageNumber">
+      page 2
+    </p>
+    <p ng-hide="$ctrl.showButton3" class="pageNumber">
+      page 3
+    </p>
+    <p ng-hide="$ctrl.showButton4" class="pageNumber">
+      page 4
+    </p>
+  </div>
+  <div class="loadingBox" ng-show="$ctrl.loading">
+    <img class="loadingImage" src="/images/pawfinderlogo.png" />
+    <h3>Finding pets...</h3>
+  </div>
+  <div class="the-dogs" ng-repeat="dog in $ctrl.dogs">
+    <div class="dog-box" ng-click="$ctrl.getInfo(dog)">
+      <h4 class="dog-name">
+      {{dog.name.$t}}
+      </h4>
+      <img class="dog-photo" src="{{dog.media.photos}}" />
+    </div>
+
+    <!-- ///////////////////////////////////////
+        //////////// Pet Info Modal //////////// -->
+    <div class="dogInfo" ng-class="{show: dog.show}">
+      <div class="editBody modal-content">
+        <div class="modal-header">
+          <button type="button" class="close closeButton" ng-click="$ctrl.closeDogInfo(dog)">&times;</button>
+          <h2 class="dogInfo-name">{{dog.name.$t}}</h2>
+          <p class="contactInfo">
+            {{dog.contact.email.$t}}
+          </p>
+          <p class="contactInfo">
+            {{dog.contact.phone.$t}}
+          </p>
+        </div>
+        <div class="modal-body">
+          <div class="dogInfo-box">
+            <img class="dogInfo-photo" src="{{dog.media.photos}}" />
+            <div class="dogInfo-infoBox">
+              <p class="dogInfo-category-p">
+                <span class="dogInfo-category">Breed: </span> {{dog.breeds.breed.$t}}{{dog.breeds.breed[0].$t}}
+              </p>
+              <p class="dogInfo-category-p">
+                <span class="dogInfo-category">Mix: </span> {{dog.mix.$t}}
+              </p>
+              <p class="dogInfo-category-p">
+                <span class="dogInfo-category">Age: </span> {{dog.age.$t}}
+              </p>
+              <p class="dogInfo-category-p">
+                <span class="dogInfo-category"> Sex: </span> {{dog.sex.$t}}
+              </p>
+              <p class="additionalInfoHeader">
+                Additional Info:
+                <p class="additionalInfo">
+                  {{dog.options.option.$t}}{{dog.options.option[0].$t}}
+                </p>
+                <p class="additionalInfo">
+                  {{dog.options.option[1].$t}}
+                </p>
+                <p class="additionalInfo">
+                  {{dog.options.option[2].$t}}
+                </p>
+                <p class="additionalInfo">
+                  {{dog.options.option[3].$t}}
+                </p>
+              </p>
+            </div>
+          </div>
+          <p class="dogInfo-description"> {{dog.description.$t}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- //////////// Pet Info Modal END ////////////
+      /////////////////////////////////////////// -->
+
+  </div>
+  <div class="pageNumberBox" ng-show="$ctrl.hide">
+    <p ng-hide="$ctrl.showButton" class="pageNumber">
+      page 1
+    </p>
+    <p ng-hide="$ctrl.showButton2" class="pageNumber">
+      page 2
+    </p>
+    <p ng-hide="$ctrl.showButton3" class="pageNumber">
+      page 3
+    </p>
+    <p ng-hide="$ctrl.showButton4" class="pageNumber">
+      page 4
+    </p>
+  </div>
+  <div class="nextPageBox">
+    <p class="nextPageHeader" ng-show="$ctrl.hide">
+      page
+    </p>
+    <div class="nextButtons">
+      <button class="nextPageButton" ng-show="$ctrl.showButton" ng-click="$ctrl.original()" href="#topOfResults" du-smooth-scroll>1</button>
+      <button class="nextPageButton" ng-show="$ctrl.showButton2" ng-click="$ctrl.nextPage()" href="#topOfResults" du-smooth-scroll>2</button>
+      <button class="nextPageButton" ng-show="$ctrl.showButton3" ng-click="$ctrl.nextPage2()" href="#topOfResults" du-smooth-scroll>3</button>
+      <button class="nextPageButton" ng-show="$ctrl.showButton4" ng-click="$ctrl.nextPage3()" href="#topOfResults" du-smooth-scroll>4</button>
+    </div>
+  </div>
+
+
+</div>

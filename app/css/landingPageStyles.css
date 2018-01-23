@@ -1,0 +1,278 @@
+body {
+  background: #ffecd8;
+  text-align: center;
+}
+
+.landingPage {
+  min-width: 96%;
+  min-height: 98vh;
+  margin: 1% 2%;
+  border-radius: 6px;
+  box-shadow: 3px 3px 6px #333;
+  background: #47A8BD;
+  padding-bottom: 15px;
+}
+
+.landingPageHeaderBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  margin: 0px;
+  height: 300px;
+  background: url("http://www.tridanim.com/images/lghttp.32478.nexcesscdn.net/80E972/organiclifestylemagazine/wp-content/uploads/2015/10/Cats-and-Dogs.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #888;
+  border-bottom: 2px solid #555;
+}
+
+.landingPageHeader {
+  text-align: center;
+  margin-top: 155px;
+  color: #fbff8e;
+  font-size: 60px;
+  text-shadow: 4px 4px 14px #000;
+  font-family: 'Poppins', sans-serif;
+  z-index: 4;
+}
+
+.landingPageHeaderImage {
+  width: 75px;
+  margin-top: 140px;
+}
+
+.petSearchInput {
+  box-shadow: 2px 2px 4px #000;
+  width: 320px;
+  background: #1E3888;
+  border-radius: 4px;
+  margin: 1px auto;
+}
+
+.pawfinderForm {
+  width: 320px;
+  margin: -20px auto;
+  margin-bottom: 15px;
+}
+
+.landingPageButton {
+  width: 100px;
+  background: #1E3888;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+.landingPageButton:hover {
+  color: #fff;
+  background: #0f225b;
+}
+
+.landingPageButton:enabled {
+  color: #fff;
+}
+
+.pageNumberBox {
+  display: flex;
+  width: 95%;
+  justify-content: flex-end;
+}
+
+.pageNumber {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+}
+
+.the-dogs {
+  display: inline-block;
+  border-radius: 2px;
+  margin: 7px;
+  box-shadow: 1px 1px 3px #111;
+  width: 220px;
+  height: 300px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.the-dogs:hover {
+  background: #fffded;
+  box-shadow: 3px 3px 5px #222;
+}
+
+.dog-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dog-name {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+.dog-photo {
+  width: 210px;
+  height: 230px;
+  object-fit: contain;
+}
+
+.dog-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 7px;
+}
+
+.dog-info {
+  margin: 0px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.dog-info-category {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+}
+
+.loadingBox {
+  margin-top: -5px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.loadingImage {
+  width: 75px;
+  margin-bottom: 3px;
+}
+
+.nextPageButton {
+  background: #FBD1A2;
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px #000;
+  color: #000;
+  border: none;
+}
+
+.nextPageButton:hover {
+  background: #FC9F5B;
+}
+
+.nextPageHeader {
+  margin-bottom: 5px;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* /////////// DOG INFO MODAL /////////////// */
+
+.dogInfo {
+  display: none;
+  left: 20%;
+  margin-top: -30%;
+  width: 60%;
+  position: absolute;
+  z-index: 9;
+}
+
+.closeButton {
+  margin-top: 0px;
+}
+
+.dogInfo-name {
+  margin: 0px;
+  margin-bottom: 7px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.dogInfo-photo {
+  width: 180px;
+  height: 210px;
+  object-fit: contain;
+  margin: 10px auto;
+}
+
+.dogInfo-box {
+  display: flex;
+}
+
+.dogInfo-description {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  padding: 7px 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dogInfo-infoBox {
+  display: flex;
+  flex-direction: column;
+  margin: 3px auto;
+  align-items: flex-start;
+}
+
+.dogInfo-category {
+  margin: 0px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.dogInfo-category-p {
+  margin: 3px 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contactInfo {
+  margin: 3px 0px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.additionalInfoHeader {
+  margin: 0px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.additionalInfo {
+  margin: 0px;
+  margin-left: 10px;
+  font-family: 'Poppins', sans-serif;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  border-radius: 10%;
+  padding: 0px 5px;
+}
+
+/* /////////// DOG INFO MODAL END //////////////// */
+
+@media only screen and (max-width: 470px) {
+  .pawfinderForm {
+    width: 280px;
+  }
+  .petSearchInput {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .landingPageHeader {
+    font-size: 40px;
+  }
+  .landingPageHeaderImage {
+    width: 55px;
+  }
+  .dogInfo-box {
+    display: flex;
+    flex-direction: column;
+  }
+  .dogInfo-photo {
+    margin: 5px auto;
+  }
+  .dogInfo-description {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 7px 0px;
+  }
+  .dogInfo {
+    width: 85%;
+    left: 7.5%;
+    margin-top: -65%;
+  }
+}
