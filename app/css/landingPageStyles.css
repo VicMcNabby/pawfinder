@@ -56,9 +56,9 @@ body {
   color: #000;
   text-shadow: 2px 2px 10px #ffd;
   font-family: 'Poppins', sans-serif;
-  background: #fff;
-  padding: 0px 5px;
-  border-radius: 24px;
+  background: #e0ddcc;
+  padding: 0px 3px;
+  border-radius: 6px;
   /* border: 1px solid #888; */
   /* box-shadow: 2px 2px 6px #333; */
   opacity: .7;
@@ -371,6 +371,9 @@ body {
 @media only screen and (max-width: 470px) {
   .pawfinderForm {
     width: 280px;
+  }
+  .slogan {
+    background: #fffced;
   }
 }
 
