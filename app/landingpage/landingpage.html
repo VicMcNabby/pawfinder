@@ -1,7 +1,10 @@
 <div class="landingPage">
-  <div class="landingPageHeaderBox">
-    <h1 id="topOfResults" class="landingPageHeader">PawFinder</h1>
-    <img id="top" class="landingPageHeaderImage" src="/images/pawfinderlogo.png" />
+  <div class="landingPageHeaderDiv">
+    <div class="landingPageHeaderBox">
+      <h1 id="topOfResults" class="landingPageHeader">PawFinder</h1>
+      <img class="landingPageHeaderImage" src="/images/pawfinderlogo.png" />
+    </div>
+    <h3 class="slogan"><i>Find <b>YOUR</b> rescue pet today</i></h3>
   </div>
   <div class="petSearchInput">
     <form class="pawfinderForm">
@@ -10,7 +13,7 @@
     <button ng-click="$ctrl.getDogs()" class="btn landingPageButtonDog" type="submit">Find Dogs</button>
     <button ng-click="$ctrl.getCats()" class="btn landingPageButtonCat" type="submit">Find Cats</button>
   </div>
-  <div class="nextPageBox">
+  <div class="nextPageBox" ng-hide="$ctrl.hideAll">
     <p class="nextPageHeader" ng-show="$ctrl.hide">
       page
     </p>
@@ -90,6 +93,7 @@
           </div>
           <p class="dogInfo-description"> {{dog.description.$t}}</p>
         </div>
+        <button type="button" class="modalBottomClose" ng-click="$ctrl.closePetInfo(dog)">Close</button>
       </div>
     </div>
     <!-- //////////// Pet Info Modal END ////////////
@@ -97,7 +101,7 @@
 
   </div>
 
-  <div class="nextPageBox">
+  <div class="nextPageBox" ng-hide="$ctrl.hideAll">
     <p class="nextPageHeader" ng-show="$ctrl.hide">
       page
     </p>

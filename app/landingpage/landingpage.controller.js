@@ -5,7 +5,7 @@
 
   function LandingPageController($http) {
     const vm = this
-    const pawfinderURL = 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=a45d5fffa861665ba62810deb33f3fb7&format=json&count=24&location='
+    const pawfinderURL = 'https://cors-anywhere.herokuapp.com/http://api.petfinder.com/pet.find?key=a45d5fffa861665ba62810deb33f3fb7&format=json&count=25&location='
     let cats = '&animal=cat'
     let doggy = '&animal=dog'
     vm.showButton = false;
@@ -23,6 +23,7 @@
     vm.getDogs = function() {
       let zipcode = vm.zipcode
       vm.loading = true
+      vm.hideAll = true
 
       $http.get(`${pawfinderURL}${zipcode}${doggy}`)
         .then(results => {
@@ -40,6 +41,7 @@
           vm.showButton4Active = false;
           vm.loading = false;
           vm.hide = true;
+          vm.hideAll = false
 
           dogs.map(dog => {
             if (dog.media.photos) {
@@ -84,7 +86,7 @@
 
       vm.nextPage = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=24`)
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=25`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -113,7 +115,7 @@
 
       vm.nextPage2 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=48`)
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=50`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -142,7 +144,7 @@
 
       vm.nextPage3 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=72`)
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=75`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -174,6 +176,7 @@
     vm.getCats = function() {
       let zipcode = vm.zipcode
       vm.loading = true
+      vm.hideAll = true
 
       $http.get(`${pawfinderURL}${zipcode}${cats}`)
         .then(results => {
@@ -191,6 +194,7 @@
           vm.showButton4Active = false;
           vm.loading = false;
           vm.hide = true;
+          vm.hideAll = false
 
           dogs.map(dog => {
             if (dog.media.photos) {
@@ -235,7 +239,7 @@
 
       vm.nextPage = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=24`)
+        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=25`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -264,7 +268,7 @@
 
       vm.nextPage2 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=48`)
+        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=50`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -293,7 +297,7 @@
 
       vm.nextPage3 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=72`)
+        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=75`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet

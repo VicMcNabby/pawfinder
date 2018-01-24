@@ -13,35 +13,55 @@ body {
   padding-bottom: 15px;
 }
 
-.landingPageHeaderBox {
+.landingPageHeaderDiv {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
   margin: 0px;
   height: 300px;
-  background: url("http://www.tridanim.com/images/lghttp.32478.nexcesscdn.net/80E972/organiclifestylemagazine/wp-content/uploads/2015/10/Cats-and-Dogs.jpg");
+  background: url("https://www.tridanim.com/images/lghttp.32478.nexcesscdn.net/80E972/organiclifestylemagazine/wp-content/uploads/2015/10/Cats-and-Dogs.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* border: 1px solid #888; */
+  border: 1px solid #999;
   border-bottom: 2px solid #555;
+}
+
+.landingPageHeaderBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
 }
 
 .landingPageHeader {
   text-align: center;
-  margin-top: 155px;
+  margin-top: 135px;
   color: #fbff8e;
   font-size: 60px;
-  text-shadow: 4px 4px 14px #000;
+  text-shadow: 4px 4px 8px #000;
   font-family: 'Poppins', sans-serif;
   z-index: 4;
 }
 
 .landingPageHeaderImage {
   width: 75px;
-  margin-top: 140px;
+  margin-top: 120px;
+}
+
+.slogan {
+  margin-top: -10px;
+  color: #000;
+  text-shadow: 2px 2px 10px #ffd;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  padding: 0px 5px;
+  border-radius: 24px;
+  /* border: 1px solid #888; */
+  /* box-shadow: 2px 2px 6px #333; */
+  opacity: .7;
 }
 
 .petSearchInput {
@@ -247,7 +267,9 @@ body {
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   padding: 7px 0px;
+  margin-bottom: 2px;
   font-family: 'Poppins', sans-serif;
+  text-align: left;
 }
 
 .dogInfo-infoBox {
@@ -293,6 +315,21 @@ body {
   padding: 0px 5px;
 }
 
+.modalBottomClose {
+  background: #fffad6;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 7px;
+  padding: 2px 15px;
+  box-shadow: 1px 1px 3px #333;
+  border-radius: 2px;
+}
+
+.modalBottomClose:hover {
+  background: #ede7bb;
+  box-shadow: 0px 0px 1px #333;
+}
+
 /* /////////// DOG INFO MODAL END //////////////// */
 
 @media only screen and (max-width: 650px) {
@@ -304,10 +341,13 @@ body {
 
 @media only screen and (max-width: 550px) {
   .landingPageHeader {
-    font-size: 40px;
+    font-size: 48px;
   }
   .landingPageHeaderImage {
-    width: 55px;
+    width: 60px;
+  }
+  .slogan {
+    font-size: 20px;
   }
   .dogInfo-box {
     display: flex;
@@ -322,8 +362,8 @@ body {
     padding: 7px 0px;
   }
   .dogInfo {
-    width: 85%;
-    left: 7.5%;
+    width: 92%;
+    left: 4%;
     margin-top: -65%;
   }
 }
@@ -331,5 +371,20 @@ body {
 @media only screen and (max-width: 470px) {
   .pawfinderForm {
     width: 280px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .landingPageButtonCat, .landingPageButtonDog {
+    width: 105px;
+  }
+  .landingPageHeader {
+    font-size: 40px;
+  }
+  .landingPageHeaderImage {
+    width: 50px;
+  }
+  .slogan {
+    font-size: 18px;
   }
 }
