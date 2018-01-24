@@ -6,8 +6,9 @@ body {
 .landingPage {
   min-width: 96%;
   min-height: 98vh;
-  margin: 1% 2%;
-  border-radius: 6px;
+  margin: 1% 2% 0px 2%;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
   box-shadow: 3px 3px 6px #333;
   background: #47A8BD;
   padding-bottom: 15px;
@@ -328,6 +329,46 @@ body {
 .modalBottomClose:hover {
   background: #ede7bb;
   box-shadow: 0px 0px 1px #333;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 96%;
+  height: 85px;
+  background: #8bd5e5;
+  margin: 0px 2% 1% 2%;
+  box-shadow: 3px 3px 6px #333;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding-top: 10px;
+}
+
+.portfolioLink {
+  text-decoration: none;
+  color: #000;
+}
+
+.portfolioLink:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.footerLogo {
+  width: 40px;
+}
+
+.portfolio {
+  font-family: 'Poppins', sans-serif;
+  margin: 0px;
+}
+
+.copyright {
+  font-family: 'Poppins', sans-serif;
+  margin-top: -5px;
+  margin-right: 6px;
 }
 
 /* /////////// DOG INFO MODAL END //////////////// */
