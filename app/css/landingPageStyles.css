@@ -357,12 +357,13 @@ body {
 }
 
 .footerLogo {
-  width: 40px;
+  width: 35px;
 }
 
 .portfolio {
   font-family: 'Poppins', sans-serif;
   margin: 0px;
+  font-size: 16px;
 }
 
 .copyright {
