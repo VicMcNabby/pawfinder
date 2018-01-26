@@ -10,9 +10,34 @@
     <form class="pawfinderForm">
       <input ng-model="$ctrl.zipcode" type="text" class="form-control" placeholder="Enter zipcode...">
     </form>
-    <button ng-click="$ctrl.getDogs()" class="btn landingPageButtonDog" type="submit">Find Dogs</button>
-    <button ng-click="$ctrl.getCats()" class="btn landingPageButtonCat" type="submit">Find Cats</button>
+    <div class="optionButtonBox">
+      <button ng-click="$ctrl.openOptions()" class="btn landingPageButtonOptions" type="submit">More Options <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></button>
+
+      <div class="optionsBox" ng-show="$ctrl.options">
+        <button type="button" class="close closeOptionsButton" ng-click="$ctrl.closeOptions()">x</button>
+        <div class="optionFormBox">
+
+          <form class="radioForm">
+            <h4 class="optionsHeader">Sex:</h4>
+            <label class="optionLabel"><input class="sexOption" type="radio" ng-model="$ctrl.sex" value="M" /> Male</label>
+            <label class="optionLabel"><input class="sexOption" type="radio" ng-model="$ctrl.sex" value="F" /> Female</label>
+          </form>
+
+          <form class="radioForm">
+            <h4 class="optionsHeader">Age:</h4>
+            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Baby" /> Baby</label>
+            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Young" /> Young</label>
+            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Adult" /> Adult</label>
+            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Senior" /> Senior</label>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <button ng-click="$ctrl.getDogs(); !showOptions" class="btn landingPageButtonDog" type="submit">Find Dogs</button>
+    <button ng-click="$ctrl.getCats(); !showOptions" class="btn landingPageButtonCat" type="submit">Find Cats</button>
   </div>
+
   <div class="nextPageBox" ng-hide="$ctrl.hideAll">
     <p class="nextPageHeader" ng-show="$ctrl.hide">
       page

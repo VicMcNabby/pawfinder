@@ -118,6 +118,66 @@ body {
   color: #fff;
 }
 
+.landingPageButtonOptions {
+  background: #7cb852;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  text-shadow: 1px 0px 1px #000;
+  margin: 0px 10px 7px 10px;
+  box-shadow: 1px 1px 2px #333;
+  border-radius: 2px;
+  padding: 1px 3px 0px 3px;
+}
+
+.landingPageButtonOptions:enabled {
+  color: #fff;
+}
+
+.landingPageButtonOptions:hover {
+  background: #528c5c;
+}
+
+.optionsBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 145px;
+  width: 27%;
+  margin: 3px auto;
+  margin-bottom: 7px;
+  box-shadow: 1px 1px 3px #000;
+  background: #8bd5e5;
+  border-radius: 3px;
+}
+
+.optionFormBox {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.closeOptionsButton {
+  margin-left: 85%;
+  margin-top: 5px;
+}
+
+.optionsHeader {
+  font-family: 'Oswald', sans-serif;
+  margin-top: -10px;
+  margin-left: 5px;
+}
+
+.optionLabel {
+  margin-bottom: 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.radioForm {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
 .pageNumberBox {
   display: flex;
   width: 95%;
@@ -408,6 +468,9 @@ body {
     left: 4%;
     margin-top: -65%;
   }
+  .optionsBox {
+    width: 70%;
+  }
 }
 
 @media only screen and (max-width: 470px) {
@@ -416,6 +479,9 @@ body {
   }
   .slogan {
     background: #fffced;
+  }
+  .optionsBox {
+    width: 75%;
   }
 }
 
@@ -431,5 +497,8 @@ body {
   }
   .slogan {
     font-size: 18px;
+  }
+  .optionsBox {
+    width: 80%;
   }
 }

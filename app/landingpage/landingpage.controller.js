@@ -17,15 +17,26 @@
     vm.showButton3Active = false;
     vm.showButton4Active = false;
     vm.hide = false;
+    vm.options = false;
 
 
     ////////////////// FIND DOGS ////////////////////
     vm.getDogs = function() {
       let zipcode = vm.zipcode
+      vm.options = false;
+      let sex = vm.sex;
+      if (sex == null) {
+        sex = ''
+      }
+      let age = vm.age
+      if (age == null) {
+        age = ''
+      }
+      console.log(sex);
+      console.log(age);
       vm.loading = true
       vm.hideAll = true
-
-      $http.get(`${pawfinderURL}${zipcode}${doggy}`)
+      $http.get(`${pawfinderURL}${zipcode}${doggy}&sex=${sex}&age=${age}`)
         .then(results => {
           console.log(results);
           vm.dogs = results.data.petfinder.pets.pet
@@ -54,10 +65,12 @@
         })
       vm.dogs = []
       vm.zipcode = ''
+      vm.age = ''
+      vm.sex = ''
 
       vm.original = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=0`)
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&sex=${sex}&age=${age}&offset=0`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -86,7 +99,7 @@
 
       vm.nextPage = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=25`)
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&sex=${sex}&age=${age}&offset=25`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -115,7 +128,7 @@
 
       vm.nextPage2 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=50`)
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&sex=${sex}&age=${age}&offset=50`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -144,7 +157,7 @@
 
       vm.nextPage3 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${doggy}&offset=75`)
+        $http.get(`${pawfinderURL}${zipcode}${doggy}&sex=${sex}&age=${age}&offset=75`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -175,10 +188,19 @@
     ////////////////// FIND CATS ////////////////////
     vm.getCats = function() {
       let zipcode = vm.zipcode
+      vm.options = false;
+      let sex = vm.sex;
+      if (sex == null) {
+        sex = ''
+      }
+      let age = vm.age
+      if (age == null) {
+        age = ''
+      }
       vm.loading = true
       vm.hideAll = true
 
-      $http.get(`${pawfinderURL}${zipcode}${cats}`)
+      $http.get(`${pawfinderURL}${zipcode}${cats}&sex=${sex}&age=${age}`)
         .then(results => {
           console.log(results);
           vm.dogs = results.data.petfinder.pets.pet
@@ -207,10 +229,12 @@
         })
       vm.dogs = []
       vm.zipcode = ''
+      vm.age = ''
+      vm.sex = ''
 
       vm.original = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=0`)
+        $http.get(`${pawfinderURL}${zipcode}${cats}&sex=${sex}&age=${age}&offset=0`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -239,7 +263,7 @@
 
       vm.nextPage = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=25`)
+        $http.get(`${pawfinderURL}${zipcode}${cats}&sex=${sex}&age=${age}&offset=25`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -268,7 +292,7 @@
 
       vm.nextPage2 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=50`)
+        $http.get(`${pawfinderURL}${zipcode}${cats}&sex=${sex}&age=${age}&offset=50`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -297,7 +321,7 @@
 
       vm.nextPage3 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}${cats}&offset=75`)
+        $http.get(`${pawfinderURL}${zipcode}${cats}&sex=${sex}&age=${age}&offset=75`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -326,14 +350,25 @@
     }
     ////////////////////////////// END FIND CATS ///////////////////////////////
 
+    vm.reload = function() {
+      window.location.reload()
+    }
+
+    vm.openOptions = function() {
+      vm.options = true;
+    }
+
+    vm.closeOptions = function() {
+      vm.options = false;
+    }
 
     vm.getInfo = function(dog) {
-      dog.show = true
+      dog.show = true;
       console.log(dog);
     }
 
     vm.closePetInfo = function(dog) {
-      dog.show = false
+      dog.show = false;
     }
   }
 }());
