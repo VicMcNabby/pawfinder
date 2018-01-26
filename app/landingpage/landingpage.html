@@ -34,10 +34,14 @@
       </div>
 
     </div>
-    <button ng-click="$ctrl.getDogs(); !showOptions" class="btn landingPageButtonDog" type="submit">Find Dogs</button>
-    <button ng-click="$ctrl.getCats(); !showOptions" class="btn landingPageButtonCat" type="submit">Find Cats</button>
+    <button ng-click="$ctrl.getPets('dog')" class="btn landingPageButtonDog" type="submit">Find Dogs</button>
+    <button ng-click="$ctrl.getPets('cat')" class="btn landingPageButtonCat" type="submit">Find Cats</button>
   </div>
 
+  <!-- <button ng-click="$ctrl.practice('dog')" class="btn landingPageButtonCat" ng-model="$ctrl.bro" value="dog" type="submit">DEMO</button> -->
+  <p class="errorMessage" ng-show="$ctrl.errorMessage">
+    Must enter valid zipcode
+  </p>
   <div class="nextPageBox" ng-hide="$ctrl.hideAll">
     <p class="nextPageHeader" ng-show="$ctrl.hide">
       page
