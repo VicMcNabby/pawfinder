@@ -21,20 +21,22 @@
 
     vm.getPets = function(value) {
       let zipcode = vm.zipcode
+      let pet = value
+      let sex = vm.sex;
+      if (sex == null) {
+        sex = ''
+      }
+      let age = vm.age
+      if (age == null) {
+        age = ''
+      }
       const numbers = /^[0-9]+$/;
 
       if ((zipcode) && (zipcode.length == 5) && zipcode.match(numbers)) {
         vm.errorMessage = false;
-        let pet = value
+
         vm.options = false;
-        let sex = vm.sex;
-        if (sex == null) {
-          sex = ''
-        }
-        let age = vm.age
-        if (age == null) {
-          age = ''
-        }
+
         console.log(sex);
         console.log(age);
         vm.loading = true
