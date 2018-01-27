@@ -21,6 +21,10 @@
 
     vm.getPets = function(value) {
       let zipcode = vm.zipcode
+      let size = vm.size
+      if (size == null) {
+        size = ''
+      }
       let pet = value
       let sex = vm.sex;
       if (sex == null) {
@@ -41,7 +45,7 @@
         console.log(age);
         vm.loading = true
         vm.hideAll = true
-        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}`)
+        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&size=${size}`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -70,16 +74,17 @@
           })
       } else {
         vm.errorMessage = true;
-        vm.hideAll = true
+        vm.hideAll = true;
       }
-      vm.dogs = []
-      vm.zipcode = ''
-      vm.age = ''
-      vm.sex = ''
+      vm.dogs = [];
+      vm.zipcode = '';
+      vm.age = '';
+      vm.sex = '';
+      vm.size = '';
 
       vm.original = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&offset=0`)
+        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&size=${size}&offset=0`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -108,7 +113,7 @@
 
       vm.nextPage = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&offset=25`)
+        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&size=${size}&offset=25`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -137,7 +142,7 @@
 
       vm.nextPage2 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&offset=50`)
+        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&size=${size}&offset=50`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet
@@ -166,7 +171,7 @@
 
       vm.nextPage3 = function() {
         vm.loading = true
-        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&offset=75`)
+        $http.get(`${pawfinderURL}${zipcode}&animal=${pet}&sex=${sex}&age=${age}&size=${size}&offset=75`)
           .then(results => {
             console.log(results);
             vm.dogs = results.data.petfinder.pets.pet

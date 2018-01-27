@@ -14,6 +14,7 @@
       <button ng-click="$ctrl.openOptions()" class="btn landingPageButtonOptions" type="submit">More Options <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></button>
 
       <div class="optionsBox" ng-show="$ctrl.options">
+
         <button type="button" class="close closeOptionsButton" ng-click="$ctrl.closeOptions()">x</button>
         <div class="optionFormBox">
 
@@ -29,6 +30,14 @@
             <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Young" /> Young</label>
             <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Adult" /> Adult</label>
             <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Senior" /> Senior</label>
+          </form>
+
+          <form class="radioForm">
+            <h4 class="optionsHeader">Size:</h4>
+            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="S" /> Small</label>
+            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="M" /> Medium</label>
+            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="L" /> Large</label>
+            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="XL" /> Extra Large</label>
           </form>
         </div>
       </div>
@@ -98,10 +107,13 @@
                 <span class="dogInfo-category">Mix: </span> {{dog.mix.$t}}
               </p>
               <p class="dogInfo-category-p">
+                <span class="dogInfo-category"> Sex: </span> {{dog.sex.$t}}
+              </p>
+              <p class="dogInfo-category-p">
                 <span class="dogInfo-category">Age: </span> {{dog.age.$t}}
               </p>
               <p class="dogInfo-category-p">
-                <span class="dogInfo-category"> Sex: </span> {{dog.sex.$t}}
+                <span class="dogInfo-category"> Size: </span> {{dog.size.$t}}
               </p>
               <p class="additionalInfoHeader">
                 Additional Info:

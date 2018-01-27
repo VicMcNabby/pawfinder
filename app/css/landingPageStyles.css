@@ -141,11 +141,11 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 150px;
-  width: 28%;
+  height: 145px;
+  width: 45%;
   margin: 3px auto;
-  margin-bottom: 7px;
-  box-shadow: 1px 1px 3px #000;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 1px #000;
   background: #8bd5e5;
   border-radius: 3px;
 }
@@ -162,9 +162,11 @@ body {
 }
 
 .optionsHeader {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
   margin-top: -10px;
   margin-left: 5px;
+  margin-bottom: 5px;
 }
 
 .optionLabel {
@@ -441,6 +443,12 @@ body {
 
 /* /////////// DOG INFO MODAL END //////////////// */
 
+@media only screen and (max-width: 900px) {
+  .optionsBox {
+    width: 55%;
+  }
+}
+
 @media only screen and (max-width: 650px) {
   .dogInfo-box {
     display: flex;
@@ -488,7 +496,7 @@ body {
     background: #fffced;
   }
   .optionsBox {
-    width: 75%;
+    width: 85%;
   }
 }
 
@@ -506,6 +514,6 @@ body {
     font-size: 18px;
   }
   .optionsBox {
-    width: 80%;
+    width: 90%;
   }
 }
