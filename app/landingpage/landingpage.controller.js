@@ -199,6 +199,12 @@
       }
     }
 
+    vm.resetOptions = function() {
+      vm.age = '';
+      vm.sex = '';
+      vm.size = '';
+    }
+
 
     vm.reload = function() {
       window.location.reload()
