@@ -11,6 +11,9 @@
       .state('home', {
         url: '/',
         component: 'landingpage'
+      }).state('search', {
+        url: '/search',
+        component: 'search'
       })
 
     $urlServiceProvider.rules.otherwise({

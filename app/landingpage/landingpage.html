@@ -1,175 +1,27 @@
-<div class="landingPage">
-  <div class="landingPageHeaderDiv">
-    <div class="landingPageHeaderBox">
-      <h1 id="topOfResults" class="landingPageHeader">PawFinder</h1>
-      <img class="landingPageHeaderImage" src="/images/pawfinderlogo.png" />
+<div class="mainPage">
+  <div class="topPage">
+    <img class="image1" src="images/dog2.jpg" />
+    <img class="image2" src="images/cat4.jpg" />
+    <div class="splashInfoBox">
+      <h3 class="splashHeader">
+      PawFinder
+    </h3>
+      <img class="splashLogo" src="images/pawfinderlogo.png">
     </div>
-    <h3 class="slogan"><i>Find <b>YOUR</b> rescue pet today</i></h3>
+    <h4 class="rescueSlogan"><i>Find YOUR rescue pet today</i></h4>
   </div>
-  <div class="petSearchInput">
-    <form class="pawfinderForm">
-      <input ng-model="$ctrl.zipcode" type="text" class="form-control" placeholder="Enter zipcode...">
-    </form>
-    <div class="optionButtonBox">
-      <button ng-click="$ctrl.openOptions()" class="btn landingPageButtonOptions" type="submit">More Options <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></button>
-
-      <div class="optionsBox" ng-show="$ctrl.options">
-
-        <button type="button" class="close closeOptionsButton" ng-click="$ctrl.closeOptions()">x</button>
-        <div class="optionFormBox">
-
-          <form class="radioForm">
-            <h4 class="optionsHeader">Sex:</h4>
-            <label class="optionLabel"><input class="sexOption" type="radio" ng-model="$ctrl.sex" value="M" /> Male</label>
-            <label class="optionLabel"><input class="sexOption" type="radio" ng-model="$ctrl.sex" value="F" /> Female</label>
-          </form>
-
-          <form class="radioForm">
-            <h4 class="optionsHeader">Age:</h4>
-            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Baby" /> Baby</label>
-            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Young" /> Young</label>
-            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Adult" /> Adult</label>
-            <label class="optionLabel"><input class="ageOption" type="radio" ng-model="$ctrl.age" value="Senior" /> Senior</label>
-          </form>
-
-          <form class="radioForm">
-            <h4 class="optionsHeader">Size:</h4>
-            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="S" /> Small</label>
-            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="M" /> Medium</label>
-            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="L" /> Large</label>
-            <label class="optionLabel"><input class="sizeOption" type="radio" ng-model="$ctrl.size" value="XL" /> Extra Large</label>
-          </form>
-        </div>
-        <button type="button" class="resetOptionsButton" ng-click="$ctrl.resetOptions()">reset</button>
-      </div>
-
-    </div>
-    <button ng-click="$ctrl.getPets('dog')" class="btn landingPageButtonDog" type="submit">Find Dogs</button>
-    <button ng-click="$ctrl.getPets('cat')" class="btn landingPageButtonCat" type="submit">Find Cats</button>
+  <button class="splashButton" ui-sref="search">Click here to begin</button>
+  <div class="bottomPage ">
+    <img class="image1 " src="images/cat2.jpg" />
+    <img class="image2 " src="images/dog3.jpg" />
   </div>
-
-  <!-- <button ng-click="$ctrl.practice('dog')" class="btn landingPageButtonCat" ng-model="$ctrl.bro" value="dog" type="submit">DEMO</button> -->
-  <p class="errorMessage" ng-show="$ctrl.errorMessage">
-    Must enter valid zipcode
-  </p>
-  <div class="nextPageBox" ng-hide="$ctrl.hideAll">
-    <p class="nextPageHeader" ng-show="$ctrl.hide">
-      page
+  <footer class="footer1">
+    <a class="portfolioLink" href="https://flippdesigns.com" target="_blank">
+    <img class="footerLogo" src="images/Flipp Designs.png" />
+    <p class="portfolio">
+      Powered by Flipp Designs &copy 2017
     </p>
-    <div class="nextButtons">
-      <button class="nextPageButton" ng-show="$ctrl.showButton" ng-click="$ctrl.original()">1</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButtonActive">1</button>
-      <button class="nextPageButton" ng-show="$ctrl.showButton2" ng-click="$ctrl.nextPage()">2</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButton2Active">2</button>
-      <button class="nextPageButton" ng-show="$ctrl.showButton3" ng-click="$ctrl.nextPage2()">3</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButton3Active">3</button>
-      <button class="nextPageButton" ng-show="$ctrl.showButton4" ng-click="$ctrl.nextPage3()">4</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButton4Active">4</button>
-    </div>
-  </div>
+    </a>
 
-  <div class="loadingBox" ng-show="$ctrl.loading">
-    <img class="loadingImage" src="/images/pawfinderlogo.png" />
-    <h4>Getting pets...</h4>
-  </div>
-  <div class="the-dogs" ng-repeat="dog in $ctrl.dogs">
-    <div class="dog-box" ng-click="$ctrl.getInfo(dog)">
-      <h4 class="dog-name">
-      {{dog.name.$t}}
-      </h4>
-      <img class="dog-photo" src="{{dog.media.photos}}" />
-    </div>
-
-    <!-- ///////////////////////////////////////
-        //////////// Pet Info Modal //////////// -->
-    <div class="dogInfo" ng-class="{show: dog.show}">
-      <div class="dogInfo-body modal-content">
-        <div class="modal-header">
-          <button type="button" class="close closeButton" ng-click="$ctrl.closePetInfo(dog)">X</button>
-          <h2 class="dogInfo-name">{{dog.name.$t}}</h2>
-          <p class="contactInfoCity">
-            {{dog.contact.city.$t}}, {{dog.contact.state.$t}}
-          </p>
-          <p class="contactInfo">
-            <a href="mailto:{{dog.contact.email.$t}}">{{dog.contact.email.$t}}</a>
-          </p>
-          <p class="contactInfo">
-            <a href="tel:+1-{{dog.contact.phone.$t}}">{{dog.contact.phone.$t}}</a>
-          </p>
-        </div>
-        <div class="modal-body">
-          <div class="dogInfo-box">
-            <img class="dogInfo-photo" src="{{dog.media.photos}}" />
-            <div class="dogInfo-infoBox">
-              <p class="dogInfo-category-p">
-                <span class="dogInfo-category">Breed: </span> {{dog.breeds.breed.$t}}{{dog.breeds.breed[0].$t}}
-              </p>
-              <p class="dogInfo-category-p">
-                <span class="dogInfo-category">Mix: </span> {{dog.mix.$t}}
-              </p>
-              <p class="dogInfo-category-p">
-                <span class="dogInfo-category"> Sex: </span> {{dog.sex.$t}}
-              </p>
-              <p class="dogInfo-category-p">
-                <span class="dogInfo-category">Age: </span> {{dog.age.$t}}
-              </p>
-              <p class="dogInfo-category-p">
-                <span class="dogInfo-category"> Size: </span> {{dog.size.$t}}
-              </p>
-              <p class="additionalInfoHeader">
-                Additional Info:
-                <p class="additionalInfo">
-                  {{dog.options.option.$t}}{{dog.options.option[0].$t}}
-                </p>
-                <p class="additionalInfo">
-                  {{dog.options.option[1].$t}}
-                </p>
-                <p class="additionalInfo">
-                  {{dog.options.option[2].$t}}
-                </p>
-                <p class="additionalInfo">
-                  {{dog.options.option[3].$t}}
-                </p>
-              </p>
-            </div>
-          </div>
-          <p class="dogInfo-description"> {{dog.description.$t}}</p>
-        </div>
-        <button type="button" class="modalBottomClose" ng-click="$ctrl.closePetInfo(dog)">Close</button>
-      </div>
-    </div>
-    <!-- //////////// Pet Info Modal END ////////////
-      /////////////////////////////////////////// -->
-
-  </div>
-
-  <div class="nextPageBox" ng-hide="$ctrl.hideAll">
-    <p class="nextPageHeader" ng-show="$ctrl.hide">
-      page
-    </p>
-    <div class="nextButtons">
-      <button class="nextPageButton" ng-show="$ctrl.showButton" ng-click="$ctrl.original()" href="#topOfResults" du-smooth-scroll>1</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButtonActive">1</button>
-      <button class="nextPageButton" ng-show="$ctrl.showButton2" ng-click="$ctrl.nextPage()" href="#topOfResults" du-smooth-scroll>2</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButton2Active">2</button>
-      <button class="nextPageButton" ng-show="$ctrl.showButton3" ng-click="$ctrl.nextPage2()" href="#topOfResults" du-smooth-scroll>3</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButton3Active">3</button>
-      <button class="nextPageButton" ng-show="$ctrl.showButton4" ng-click="$ctrl.nextPage3()" href="#topOfResults" du-smooth-scroll>4</button>
-      <button class="nextPageButton2" ng-show="$ctrl.showButton4Active">4</button>
-    </div>
-  </div>
-
-
+  </footer>
 </div>
-<footer class="footer">
-  <a class="portfolioLink" href="https://matthewvictor.io" target="_blank">
-  <img class="footerLogo" src="images/footerLogo.png" />
-  <p class="portfolio">
-    matthew<span style="color:#7cb852; text-shadow:1px 0px 0px #000;">victor</span>.io
-  </p>
-  <p class="copyright">
-    &copy 2018
-  </p>
-  </a>
-
-</footer>
